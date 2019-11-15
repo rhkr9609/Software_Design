@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">student_app</string>
-    <string name="title_activity_student_modified">studentActivity_modified</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-</resources>
