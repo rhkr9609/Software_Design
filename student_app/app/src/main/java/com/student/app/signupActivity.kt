@@ -1,11 +1,11 @@
 package com.student.app
 
-import android.app.AppComponentFactory
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.signup_page.*
 
 private var firebaseAuth: FirebaseAuth? = null
@@ -38,13 +38,24 @@ class signupActivity : AppCompatActivity() {
             ).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
                     val user = firebaseAuth?.currentUser
+
+                    val id = email.split("@")
+                    writeStudent(id[0])
+
                     Toast.makeText(this, "회원가입 성공.", Toast.LENGTH_SHORT).show()
-                    val nextIntent = Intent(this, MainActivity::class.java)
-                    startActivity(nextIntent)
+                    finish()
+                    //val nextIntent = Intent(this, MainActivity::class.java)
+                    //startActivity(nextIntent)
                 } else {
                     Toast.makeText(this, "회원가입 실패 다시 시도하시오.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
+    }
+    private fun writeStudent(ID: String){
+        val database = FirebaseDatabase.getInstance()
+        val myRef = database.getReference("student")
+        student.ID = ID
+        myRef.child(ID).setValue(student)
     }
 }

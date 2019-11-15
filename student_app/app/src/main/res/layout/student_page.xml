@@ -57,6 +57,7 @@
         </LinearLayout>
 
         <androidx.viewpager.widget.ViewPager
+            android:id="@+id/pager"
             android:layout_width="match_parent"
             android:layout_height="381dp" />
 
@@ -65,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:gravity="center"
-            android:text="40000원"
+            android:text="0원"
             android:textSize="30sp" />
     </LinearLayout>
 
