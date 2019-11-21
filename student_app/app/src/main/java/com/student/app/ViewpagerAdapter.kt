@@ -1,21 +1,23 @@
 package com.student.app
 
 import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
+import com.bumptech.glide.Glide
 import com.google.firebase.storage.FirebaseStorage
 import com.bumptech.glide.annotation.GlideModule;
 import com.bumptech.glide.module.AppGlideModule;
 
-class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
+class ViewPagerAdapter(private val context : Context, data:ArrayList<String>) : PagerAdapter() {
 
     private var layoutInflater : LayoutInflater? = null
-    val storageReference = FirebaseStorage.getInstance().reference
-    var Image = listOf(R.drawable.A)
+    var data = data
+    var Image = listOf(R.drawable.knu, R.drawable.knulo)
 
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -32,9 +34,13 @@ class ViewPagerAdapter(private val context : Context) : PagerAdapter() {
         val v = layoutInflater!!.inflate(R.layout.viewpager, null)
         val image = v.findViewById<View>(R.id.vpImgview) as ImageView
 
+        //Glide.with(context).load(data.get(position)).into(image)
+        //container.addView(v)
+
         image.setImageResource(Image[position])
         val vp = container as ViewPager
         vp.addView(v , 0)
+
 
 
         return v
