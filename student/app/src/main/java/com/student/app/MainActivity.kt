@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 private var firebaseAuth: FirebaseAuth? = null
@@ -44,11 +43,8 @@ class MainActivity : AppCompatActivity() {
                 passwordText.text.toString()
             ).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    val user = firebaseAuth?.currentUser
-
                     val user_temp = email.split("@")
                     student.ID = user_temp[0]
-
                     val nextIntent = Intent(this, studentActivity::class.java)
                     startActivity(nextIntent)
                     Toast.makeText(this, "로그인 성공", Toast.LENGTH_SHORT).show()

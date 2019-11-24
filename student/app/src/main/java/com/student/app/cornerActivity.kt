@@ -6,19 +6,19 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.corner_page.*
-import kotlinx.android.synthetic.main.row.*
-import kotlinx.android.synthetic.main.row.textView3
-import kotlinx.android.synthetic.main.student_page.*
-import java.io.File
+
+object order {
+    var studentID: String = student.ID
+    var menu: String = ""
+    var state: Int = 1
+}
+
 
 class cornerActivity : AppCompatActivity(){
     data class User(
@@ -26,7 +26,7 @@ class cornerActivity : AppCompatActivity(){
         var name: String = "",
         var price: String = ""
     )
-
+    var parent_path = select_corner.split("_")
     var data_count : Int = 0
     var ref = FirebaseDatabase.getInstance().reference
     val storage = FirebaseStorage.getInstance()
@@ -38,7 +38,8 @@ class cornerActivity : AppCompatActivity(){
         var adapter = ListAdapter(this,mItem)
         listView.adapter = adapter
 
-        ref.child(order.menu).addListenerForSingleValueEvent(object : ValueEventListener {
+
+        ref.child(select_corner).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if(data_count == 0) {
                     Log.d("TAG","dataSnapshot")
@@ -59,25 +60,6 @@ class cornerActivity : AppCompatActivity(){
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
         })
-        /*
-        ref.child(order.menu).addChildEventListener(object : ChildEventListener {
-            override fun onCancelled(p0: DatabaseError) {
-            }
-            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                var userdata = User(p0.child("form").value.toString(),p0.child("name").value.toString(),p0.child("price").value.toString())
-                mItem.add(userdata)
-                adapter.notifyDataSetChanged()
-            }
-            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-
-            }
-            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
-            }
-            override fun onChildRemoved(p0: DataSnapshot) {
-                adapter.notifyDataSetChanged()
-            }
-        })
-         */
     }
 
     private class ViewHolder{
@@ -102,33 +84,31 @@ class cornerActivity : AppCompatActivity(){
                 holder.Text = view?.findViewById<TextView>(R.id.textView3)
                 holder.button = view?.findViewById<Button>(R.id.button1)
                 view.tag = holder
-                /* convertView가 null, 즉 최초로 화면을 실행할 때에
-                ViewHolder에 각각의 TextView와 ImageView를 findVidwById로 설정.
-                마지막에 태그를 holder로 설정한다. */
-
             } else {
                 holder = p1.tag as ViewHolder
                 view = p1
                 return view
-                /* 이미 만들어진 View가 있으므로, tag를 통해 불러와서 대체한다. */
             }
             var mitem = item[p0]
             val test: String = mitem.name + "\n" + mitem.price + "원"
             holder.Text?.text = test
             Log.d("TAG","input text")
 
-            var parent_path = order.menu.split("_")
+
 
             val storageRef = storage.reference.child(parent_path[0]).child(mitem.name +"."+mitem.form)
                 storageRef.downloadUrl.addOnCompleteListener{
                     task ->  if(task.isSuccessful) {
-                         //Log.d("TAG","parent_path : " + parent_path[0])
-                         Log.d("TAG","image_name : " + mitem.name +"."+mitem.form)
                          Glide.with(this@cornerActivity).load(task.getResult()).into(holder.image!!)
                      }
             }
             holder.button?.setOnClickListener {
-
+                if(student.order == ""){
+                    ref.child(parent_path[0] + "_order").child(order.studentID).setValue(order)
+                    ref.child("student").child(order.studentID).child("order").setValue("주문수락대기중")
+                }else{
+                    Toast.makeText(this@cornerActivity, "이미 신청한 주문이 있습니다.", Toast.LENGTH_SHORT).show()
+                }
             }
             return view
         }

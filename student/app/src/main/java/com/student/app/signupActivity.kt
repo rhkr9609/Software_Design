@@ -37,15 +37,11 @@ class signupActivity : AppCompatActivity() {
                 signUp_passwordText.text.toString()
             ).addOnCompleteListener(this) {
                 if (it.isSuccessful) {
-                    val user = firebaseAuth?.currentUser
-
                     val id = email.split("@")
                     writeStudent(id[0])
 
                     Toast.makeText(this, "회원가입 성공.", Toast.LENGTH_SHORT).show()
                     finish()
-                    //val nextIntent = Intent(this, MainActivity::class.java)
-                    //startActivity(nextIntent)
                 } else {
                     Toast.makeText(this, "회원가입 실패 다시 시도하시오.", Toast.LENGTH_SHORT).show()
                 }

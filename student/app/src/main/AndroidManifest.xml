@@ -16,6 +16,7 @@
         <activity android:name=".signupActivity"></activity>
         <activity android:name=".chargeActivity"></activity>
         <activity android:name=".cornerActivity"></activity>
+        <activity android:name=".order_checkActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
