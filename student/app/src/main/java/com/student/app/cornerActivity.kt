@@ -103,11 +103,16 @@ class cornerActivity : AppCompatActivity(){
                 Glide.with(this@cornerActivity).load(task.getResult()).into(holder.image!!)
             }
             }
-            val test: String = mitem.name + "\n" + mitem.price + "원"
-
-            holder.Text?.text = test
             holder.button?.setOnClickListener {
-
+                if(student.order == ""){
+                    order.menu = mitem.name
+                    ref.child(parent_path[0] + "_order").child(order.studentID).setValue(order)
+                    ref.child("student").child(order.studentID).child("order").setValue("주문수락대기중")
+                    ref.child("student").child(order.studentID).child("money").setValue(submoney)
+                    Toast.makeText(this@cornerActivity, "주문 성공!", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this@cornerActivity, "이미 신청한 주문이 있습니다.", Toast.LENGTH_SHORT).show()
+                }
             }
             return view
         }
