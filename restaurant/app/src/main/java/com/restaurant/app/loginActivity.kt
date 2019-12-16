@@ -38,5 +38,6 @@ open class loginActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 }

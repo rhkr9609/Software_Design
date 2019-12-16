@@ -14,7 +14,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ManagementActivity"></activity>
         <activity android:name=".loginActivity"></activity>
-        <activity android:name=".takeorder"></activity>
+        <activity android:name=".select_cornerActivity"></activity>
+        <activity android:name=".cornerActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
