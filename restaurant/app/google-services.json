@@ -8,57 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:877564816369:android:c53a9e11527eefab84f250",
-        "android_client_info": {
-          "package_name": "com.login.software_design"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "877564816369-fmfor0u00qm77pud4jn8vri11niv2fo4.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.login.software_design",
-            "certificate_hash": "fff428f861f46ea528fd4625e55f3369a3ac1493"
-          }
-        },
-        {
-          "client_id": "877564816369-ep908nek6spkggrfsiiafghkqp5f88ag.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.login.software_design",
-            "certificate_hash": "f16ac5b233d33257bb479e8cf1b22d303ebd58a8"
-          }
-        },
-        {
-          "client_id": "877564816369-galh87abgu2mc6r2vd6th6vpks76fjbt.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBF9CPeD_7YqeFIIFIsNY7U6UorbBXoIiw"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "877564816369-galh87abgu2mc6r2vd6th6vpks76fjbt.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:877564816369:android:2cba2fdc93d05a1884f250",
         "android_client_info": {
           "package_name": "com.restaurant.app"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "877564816369-fidvqie13ppbuv3787rub92he128bdua.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.restaurant.app",
+            "certificate_hash": "fff428f861f46ea528fd4625e55f3369a3ac1493"
+          }
+        },
         {
           "client_id": "877564816369-dectiqndd1ivq7i5orfqmmbir7u3jo8b.apps.googleusercontent.com",
           "client_type": 1,
@@ -90,7 +53,7 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:877564816369:android:d00156b078c9d10884f250",
+        "mobilesdk_app_id": "1:877564816369:android:2f0064d5e3d94e6384f250",
         "android_client_info": {
           "package_name": "com.student.app"
         }

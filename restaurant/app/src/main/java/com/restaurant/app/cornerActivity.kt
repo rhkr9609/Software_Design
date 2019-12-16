@@ -76,6 +76,22 @@ class cornerActivity : AppCompatActivity(){
                 button1!!.text="제공"
             button1.setOnClickListener {
 
+                var clickbutton = mitem[p0]
+                var check = 0
+                if(check  == 0 && clickbutton.menustate == start) {
+                    button1.text = "제공"
+                    mitem[p0].menustate = "2"
+                    ref.child(select_corner).child(clickbutton.studentid ).child("state").setValue(2)
+                    ref.child("student").child(clickbutton.studentid).child("order").setValue("조리중")
+                    check++
+                }
+                if(check ==0 && clickbutton.menustate == serve)
+                {
+                    ref.child("student").child(clickbutton.studentid).child("order").setValue(clickbutton.menuNum + " 조리완료")
+                    ref.child(select_corner).child(clickbutton.studentid).removeValue()
+                    mitem.remove(clickbutton)
+                }
+                notifyDataSetChanged()
             }
             return view
         }
