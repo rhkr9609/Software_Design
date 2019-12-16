@@ -104,6 +104,15 @@ class menuControlActivity : AppCompatActivity(){
             }
             }
             holder.button?.setOnClickListener {
+                storageRef.delete().addOnSuccessListener {
+                    ref.child(select_corner).child(mitem.name).removeValue()
+                    Toast.makeText(applicationContext,"삭제.",Toast.LENGTH_SHORT).show()
+                    val nextIntent = Intent(this@menuControlActivity, menuControlActivity::class.java)
+                    startActivity(nextIntent)
+                    finish()
+                }.addOnFailureListener{
+                    Toast.makeText(applicationContext,"실패.",Toast.LENGTH_SHORT).show()
+                }
 
             }
             return view
