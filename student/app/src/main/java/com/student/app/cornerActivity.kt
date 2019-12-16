@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.corner_page.*
@@ -89,6 +90,19 @@ class cornerActivity : AppCompatActivity(){
                 return view
             }
             var mitem = item[p0]
+            val test: String = mitem.name + "\n" + mitem.price + "원"
+            val submoney = student.money - mitem.price.toInt()
+            holder.Text?.text = test
+            Log.d("TAG","input text")
+
+
+
+            val storageRef = storage.reference.child(parent_path[0]).child(mitem.name +"."+mitem.form)
+            storageRef.downloadUrl.addOnCompleteListener{
+                    task ->  if(task.isSuccessful) {
+                Glide.with(this@cornerActivity).load(task.getResult()).into(holder.image!!)
+            }
+            }
             val test: String = mitem.name + "\n" + mitem.price + "원"
 
             holder.Text?.text = test
