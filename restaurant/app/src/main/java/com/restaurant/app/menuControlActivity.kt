@@ -1,6 +1,7 @@
-package com.student.app
+package com.restaurant.app
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,18 +10,15 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
-import kotlinx.android.synthetic.main.corner_page.*
+import kotlinx.android.synthetic.main.menu_control.*
+import kotlinx.android.synthetic.main.row2.*
 
-object order {
-    var studentID: String = student.ID
-    var menu: String = ""
-    var state: Int = 1
-}
-
-
-class cornerActivity : AppCompatActivity(){
+class menuControlActivity : AppCompatActivity(){
     data class User(
         var form: String = "",
         var name: String = "",
@@ -33,11 +31,16 @@ class cornerActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.corner_page)
+        setContentView(R.layout.menu_control)
         val mItem = ArrayList<User>()
         var adapter = ListAdapter(this,mItem)
         listView.adapter = adapter
 
+        addImage_button.setOnClickListener {
+            val nextIntent = Intent(this, AddActivity::class.java)
+            startActivity(nextIntent)
+            finish()
+        }
 
         ref.child(select_corner).addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -78,11 +81,11 @@ class cornerActivity : AppCompatActivity(){
             val holder : ViewHolder
 
             if (p1 == null) {
-                view = LayoutInflater.from(context).inflate(R.layout.row, null)
+                view = LayoutInflater.from(context).inflate(R.layout.row2, null)
                 holder = ViewHolder()
                 holder.image = view?.findViewById<ImageView>(R.id.imageView)
                 holder.Text = view?.findViewById<TextView>(R.id.textView3)
-                holder.button = view?.findViewById<Button>(R.id.button1)
+                holder.button = view?.findViewById<Button>(R.id.button)
                 view.tag = holder
             } else {
                 holder = p1.tag as ViewHolder
@@ -90,22 +93,16 @@ class cornerActivity : AppCompatActivity(){
                 return view
             }
             var mitem = item[p0]
+
             val test: String = mitem.name + "\n" + mitem.price + "원"
-            val submoney = student.money - mitem.price.toInt()
             holder.Text?.text = test
-            Log.d("TAG","input text")
-
-
 
             val storageRef = storage.reference.child(parent_path[0]).child(mitem.name +"."+mitem.form)
             storageRef.downloadUrl.addOnCompleteListener{
                     task ->  if(task.isSuccessful) {
-                Glide.with(this@cornerActivity).load(task.getResult()).into(holder.image!!)
+                Glide.with(this@menuControlActivity).load(task.getResult()).into(holder.image!!)
             }
             }
-            val test: String = mitem.name + "\n" + mitem.price + "원"
-
-            holder.Text?.text = test
             holder.button?.setOnClickListener {
 
             }

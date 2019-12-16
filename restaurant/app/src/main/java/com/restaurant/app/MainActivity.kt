@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         start_button.setOnClickListener{
-            val nextIntent = Intent(this, takeorder::class.java)
+            val nextIntent = Intent(this, select_cornerActivity::class.java)
             startActivity(nextIntent)
         }
         login_button.setOnClickListener {
