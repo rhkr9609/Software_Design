@@ -99,10 +99,10 @@ class cornerActivity : AppCompatActivity(){
 
 
             val storageRef = storage.reference.child(parent_path[0]).child(mitem.name +"."+mitem.form)
-            storageRef.downloadUrl.addOnCompleteListener{
+                storageRef.downloadUrl.addOnCompleteListener{
                     task ->  if(task.isSuccessful) {
-                Glide.with(this@cornerActivity).load(task.getResult()).into(holder.image!!)
-            }
+                         Glide.with(this@cornerActivity).load(task.getResult()).into(holder.image!!)
+                     }
             }
             holder.button?.setOnClickListener {
                 if(student.order == ""){

@@ -38,6 +38,10 @@ class studentActivity : AppCompatActivity() {
             val nextIntent = Intent(this, cornerActivity::class.java)
             startActivity(nextIntent)
         }
+        btn_order.setOnClickListener {
+            val nextIntent = Intent(this, order_checkActivity::class.java)
+            startActivity(nextIntent)
+        }
         //databases 호출 부분
         val charge : DatabaseReference = database.getReference("student").child(student.ID).child("money")
         val order : DatabaseReference = database.getReference("student").child(student.ID).child("order")
