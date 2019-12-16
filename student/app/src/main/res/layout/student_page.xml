@@ -19,7 +19,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="91dp"
+            android:layout_height="225dp"
             android:orientation="horizontal">
 
             <Button
@@ -31,19 +31,25 @@
                 android:textSize="24sp" />
 
             <Button
-                android:id="@+id/btn_B"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="B"
-                android:textSize="24sp" />
-
-            <Button
                 android:id="@+id/btn_C"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="C"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="225dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_B"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="B"
                 android:textSize="24sp" />
 
             <Button
@@ -56,16 +62,12 @@
 
         </LinearLayout>
 
-        <androidx.viewpager.widget.ViewPager
-            android:layout_width="match_parent"
-            android:layout_height="381dp" />
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="67dp"
             android:gravity="center"
-            android:text="40000원"
+            android:text="0원"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -93,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="주문하기"
+            android:text="주문확인"
             android:textSize="24sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

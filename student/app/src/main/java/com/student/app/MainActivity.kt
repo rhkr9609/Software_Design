@@ -20,24 +20,24 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         firebaseAuth = FirebaseAuth.getInstance()
 
-        login_button.setOnClickListener {
+        login_button.setOnClickListener{
             loginEmail()
         }
-        signup_button.setOnClickListener {
+        signup_button.setOnClickListener{
             val nextIntent = Intent(this, signupActivity::class.java)
             startActivity(nextIntent)
         }
     }
-
-    private fun loginEmail() {
+    //login function
+    private  fun loginEmail(){
         val email = emailText.text.toString()
         val password = passwordText.text.toString()
-        if (email.isEmpty() || password.isEmpty()) {
+        if(email.isEmpty() || password.isEmpty()) {
             Toast.makeText(this, "email password를 입력하시오", Toast.LENGTH_SHORT).show()
-        } else {
+        }
+        else {
             firebaseAuth!!.signInWithEmailAndPassword(
                 emailText.text.toString(),
                 passwordText.text.toString()
@@ -54,4 +54,5 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 }
