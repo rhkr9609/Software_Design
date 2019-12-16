@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.corner_page.*
@@ -89,11 +90,30 @@ class cornerActivity : AppCompatActivity(){
                 return view
             }
             var mitem = item[p0]
+
             val test: String = mitem.name + "\n" + mitem.price + "원"
-
+            val submoney = student.money - mitem.price.toInt()
             holder.Text?.text = test
-            holder.button?.setOnClickListener {
+            Log.d("TAG","input text")
 
+
+
+            val storageRef = storage.reference.child(parent_path[0]).child(mitem.name +"."+mitem.form)
+            storageRef.downloadUrl.addOnCompleteListener{
+                    task ->  if(task.isSuccessful) {
+                Glide.with(this@cornerActivity).load(task.getResult()).into(holder.image!!)
+            }
+            }
+            holder.button?.setOnClickListener {
+                if(student.order == ""){
+                    order.menu = mitem.name
+                    ref.child(parent_path[0] + "_order").child(order.studentID).setValue(order)
+                    ref.child("student").child(order.studentID).child("order").setValue("주문수락대기중")
+                    ref.child("student").child(order.studentID).child("money").setValue(submoney)
+                    Toast.makeText(this@cornerActivity, "주문 성공!", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this@cornerActivity, "이미 신청한 주문이 있습니다.", Toast.LENGTH_SHORT).show()
+                }
             }
             return view
         }
