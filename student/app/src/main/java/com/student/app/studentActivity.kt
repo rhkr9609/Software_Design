@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.student_page.*
 
+var select_corner : String = ""
+
 class studentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,6 +16,26 @@ class studentActivity : AppCompatActivity() {
         val database : FirebaseDatabase = FirebaseDatabase.getInstance()
         btn_balance.setOnClickListener {
             val nextIntent = Intent(this, chargeActivity::class.java)
+            startActivity(nextIntent)
+        }
+        btn_A.setOnClickListener {
+            select_corner = "A_menu"
+            val nextIntent = Intent(this, cornerActivity::class.java)
+            startActivity(nextIntent)
+        }
+        btn_B.setOnClickListener {
+            select_corner = "B_menu"
+            val nextIntent = Intent(this, cornerActivity::class.java)
+            startActivity(nextIntent)
+        }
+        btn_C.setOnClickListener {
+            select_corner = "C_menu"
+            val nextIntent = Intent(this, cornerActivity::class.java)
+            startActivity(nextIntent)
+        }
+        btn_D.setOnClickListener {
+            select_corner = "D_menu"
+            val nextIntent = Intent(this, cornerActivity::class.java)
             startActivity(nextIntent)
         }
         //databases 호출 부분
