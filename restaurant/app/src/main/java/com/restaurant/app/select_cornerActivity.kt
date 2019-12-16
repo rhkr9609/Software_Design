@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.select_corner_page.*
 
-
 var select_corner : String = ""
 
 class select_cornerActivity : AppCompatActivity() {
