@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.restaurant.app">
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <dist:module dist:instant="true" />
 
     <application
@@ -12,10 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ManagementActivity"></activity>
-        <activity android:name=".loginActivity"></activity>
-        <activity android:name=".takeorder"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="ManagementActivity"></activity>
+        <activity android:name="loginActivity"></activity>
+        <activity android:name="select_cornerActivity"></activity>
+        <activity android:name=".cornerActivity"></activity>
+        <activity android:name=".AddActivity"></activity>
+        <activity android:name=".menuControlActivity"></activity>
+        <activity android:name="MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

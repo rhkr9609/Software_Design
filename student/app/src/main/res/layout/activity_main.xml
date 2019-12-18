@@ -67,7 +67,7 @@
             android:shadowDy="0"
             android:shadowRadius="5"
             android:text="Signup"
-            android:textColor="#FFFFFF" />
+             android:textColor="#FFFFFF"/>
 
         <TextView
             android:id="@+id/emptyView_right"
