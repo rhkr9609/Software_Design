@@ -9,6 +9,7 @@ import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.order_check.*
 import kotlinx.android.synthetic.main.student_page.*
 
+
 class order_checkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +47,9 @@ class order_checkActivity : AppCompatActivity() {
 
             false
         })
+        button2.setOnClickListener {
+            finish()
+        }
         val orderdata : DatabaseReference = database.getReference("student").child(student.ID).child("order")
         orderdata.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {

@@ -33,5 +33,12 @@
         android:layout_weight="1"
         android:background="@drawable/delete"
         android:layout_gravity="right"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:layout_weight="1"
+        android:text="삭제" />
 </LinearLayout>

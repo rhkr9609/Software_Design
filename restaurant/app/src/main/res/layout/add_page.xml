@@ -59,6 +59,17 @@
             android:shadowDy="0"
             android:shadowRadius="5"
             android:textColor="#FFFFFF"></Button>
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Choose"></Button>
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Upload"></Button>
 
     </LinearLayout>
 

@@ -29,6 +29,19 @@
             android:background="@drawable/bb"
             android:layout_marginTop="50dp"
             android:textSize="24sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="A 코너"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/B_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="B 코너"
+            android:textAllCaps="false" />
 
     </LinearLayout>
 
@@ -54,6 +67,19 @@
             android:background="@drawable/dd"
             android:layout_marginTop="50dp"
             android:textSize="24sp" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="C 코너"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/D_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="D 코너"
+            android:textAllCaps="false" />
     </LinearLayout>
 
 </LinearLayout>

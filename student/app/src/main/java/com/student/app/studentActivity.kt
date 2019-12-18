@@ -29,6 +29,7 @@ class studentActivity : AppCompatActivity() {
 
             false
         })
+=======
         btn_A.setOnClickListener {
             select_corner = "A_menu"
             val nextIntent = Intent(this, cornerActivity::class.java)
@@ -43,6 +44,7 @@ class studentActivity : AppCompatActivity() {
 
             false
         })
+
         btn_B.setOnClickListener {
             select_corner = "B_menu"
             val nextIntent = Intent(this, cornerActivity::class.java)
@@ -57,11 +59,13 @@ class studentActivity : AppCompatActivity() {
 
             false
         })
+
         btn_C.setOnClickListener {
             select_corner = "C_menu"
             val nextIntent = Intent(this, cornerActivity::class.java)
             startActivity(nextIntent)
         }
+
         btn_C.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
                 btn_C.setBackgroundResource(R.drawable.ccc)
@@ -71,11 +75,13 @@ class studentActivity : AppCompatActivity() {
 
             false
         })
+
         btn_D.setOnClickListener {
             select_corner = "D_menu"
             val nextIntent = Intent(this, cornerActivity::class.java)
             startActivity(nextIntent)
         }
+
         btn_D.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
             if (motionEvent.action == MotionEvent.ACTION_DOWN) {
                 btn_D.setBackgroundResource(R.drawable.ddd)
@@ -85,6 +91,7 @@ class studentActivity : AppCompatActivity() {
 
             false
         })
+
         btn_order.setOnClickListener {
             val nextIntent = Intent(this, order_checkActivity::class.java)
             startActivity(nextIntent)

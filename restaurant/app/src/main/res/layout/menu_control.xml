@@ -24,5 +24,12 @@
         android:shadowDy="0"
         android:shadowRadius="5"
         android:textColor="#FFFFFF"/>
+        android:layout_height="655dp" />
+
+    <Button
+        android:id="@+id/addImage_button"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="추가" />
 
 </LinearLayout>

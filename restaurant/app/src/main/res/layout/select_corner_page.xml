@@ -54,4 +54,25 @@
         android:shadowRadius="5"
         android:textColor="#FFFFFF"
         android:layout_marginTop="30dp"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="A_corner" />
+
+    <Button
+        android:id="@+id/B_corner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="B_corner" />
+
+    <Button
+        android:id="@+id/C_corner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="C_corner" />
+
+    <Button
+        android:id="@+id/D_corner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="D_corner" />
 </LinearLayout>

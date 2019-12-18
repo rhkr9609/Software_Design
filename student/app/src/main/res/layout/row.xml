@@ -35,5 +35,15 @@
         android:visibility="visible"
         tools:visibility="visible"
         android:layout_gravity="right"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <Button
+        android:id="@+id/button1"
+        style="app"
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:text="주문"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
 </LinearLayout>
