@@ -1,10 +1,14 @@
 package com.student.app
 
 import android.os.Bundle
+import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.order_check.*
+import kotlinx.android.synthetic.main.student_page.*
+
 
 class order_checkActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,6 +26,27 @@ class order_checkActivity : AppCompatActivity() {
             else
                 Toast.makeText(this, "준비중입니다", Toast.LENGTH_SHORT).show()
         }
+        button1.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
+            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
+                button1.setBackgroundResource(R.drawable.getorder2)
+            } else if (motionEvent.action == MotionEvent.ACTION_UP) {
+                button1.setBackgroundResource(R.drawable.getorder)
+            }
+
+            false
+        })
+        button2.setOnClickListener {
+            finish()
+        }
+        button2.setOnTouchListener(View.OnTouchListener { view, motionEvent ->
+            if (motionEvent.action == MotionEvent.ACTION_DOWN) {
+                button2.setBackgroundResource(R.drawable.confirm2)
+            } else if (motionEvent.action == MotionEvent.ACTION_UP) {
+                button2.setBackgroundResource(R.drawable.confirm)
+            }
+
+            false
+        })
         button2.setOnClickListener {
             finish()
         }

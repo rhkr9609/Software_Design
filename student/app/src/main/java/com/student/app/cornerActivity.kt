@@ -90,6 +90,7 @@ class cornerActivity : AppCompatActivity(){
                 return view
             }
             var mitem = item[p0]
+
             val test: String = mitem.name + "\n" + mitem.price + "원"
             val submoney = student.money - mitem.price.toInt()
             holder.Text?.text = test

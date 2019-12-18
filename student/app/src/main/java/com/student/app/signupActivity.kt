@@ -52,6 +52,8 @@ class signupActivity : AppCompatActivity() {
         val database = FirebaseDatabase.getInstance()
         val myRef = database.getReference("student")
         student.ID = ID
+        student.money = 0
+        student.order=""
         myRef.child(ID).setValue(student)
     }
 }

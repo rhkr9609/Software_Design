@@ -7,12 +7,37 @@
     <TextView
         android:id="@+id/order_state_text"
         android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:text=""
+        android:textSize="50dp" />
         android:layout_height="wrap_content"
         android:text="" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/getorder"
+
+            />
+
+<Button
+    android:layout_width="10dp"
+    android:layout_height="10dp"
+    />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@drawable/confirm" />
         android:orientation="horizontal">
 
         <Button
